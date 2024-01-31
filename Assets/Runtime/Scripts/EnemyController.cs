@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     private int currentWaypointIndex = 0;
     private float agentStoppingDistance = 0.3f;
     private bool waypointSet = false;
-    NavMeshAgent agent;
+    private NavMeshAgent agent;
     public LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,6 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                
                 agent.SetDestination(waypoints[currentWaypointIndex].position);
                 currentWaypointIndex++;
             }
