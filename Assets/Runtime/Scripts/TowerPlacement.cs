@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-
-    public GameObject archerTower;
-    public GameObject cannonTower;
-    public GameObject magicTower;
     private GameObject selectedTower;
-    GameObject focusObj;
-    bool creatingTower;
+    private GameObject focusObj;
+    private bool creatingTower;
+    private LevelManager levelManager;
+    private int towerPrice;
 
     // Start is called before the first frame update
     void Start()
     {
         creatingTower = false;
+        levelManager = FindAnyObjectByType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -49,6 +48,8 @@ public class TowerPlacement : MonoBehaviour
                 {
                     hit.collider.gameObject.name = "Occupied";
                     focusObj.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, focusObj.transform.position.y, hit.collider.gameObject.transform.position.z);
+                    focusObj.GetComponent<Collider>().enabled = true;
+                    levelManager.currentGold -= towerPrice; 
                 }
                 else
                 {
@@ -61,24 +62,10 @@ public class TowerPlacement : MonoBehaviour
         }
     }
 
-    public void CreateTower(string type)
+    public void CreateTower(TowerObject tower)
     {
+        towerPrice = tower.level1TowerCost;
+        selectedTower = tower.level1Tower;
         creatingTower = true;
-        switch (type)
-        {
-            case "archer":
-                selectedTower = archerTower;
-                break;
-            case "cannon":
-                selectedTower = cannonTower;
-                break;
-            case "magic":
-                selectedTower = magicTower;
-                break;
-            default:
-                Debug.Log("Unable to find tower shop item");
-                break;
-        }
-
     }
 }

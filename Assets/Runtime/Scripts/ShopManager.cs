@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,43 +7,67 @@ public class ShopManager : MonoBehaviour
 {
     public Transform shopPanelTransform;
     public Button shopItemTowerPrefab;
-    public Sprite archerTowerImage;
-    public Sprite cannonTowerImage;
-    public Sprite magicTowerImage;
+    ArcherTower archerTower;
+    CannonTower cannonTower;
+    MagicTower magicTower;
+    public List<TowerObject> availableTowers;
+    TowerPlacement towerPlacement;
 
     // Start is called before the first frame update
     void Start()
     {
-        AddTowerToShop("archer");
-        AddTowerToShop("cannon");
-        AddTowerToShop("magic");
+        towerPlacement = FindAnyObjectByType<TowerPlacement>();
+        availableTowers = new List<TowerObject>();
+        archerTower = new ArcherTower();
+        cannonTower = new CannonTower();
+        magicTower = new MagicTower();
+        availableTowers.Add(archerTower);
+        availableTowers.Add(cannonTower);
+        availableTowers.Add(magicTower);
+        
+
+        foreach(TowerObject tower in availableTowers)
+        {
+            AddTowerToShop(tower);
+        }
+        
     }
     // Update is called once per frame
     void Update()
     {
-        //need to depict tower availablity based on "gold"
-        //to do this change the colour of the tower to red maybe when its not available?
+        
     }
 
-    private void AddTowerToShop(string type)
+    private void AddTowerToShop(TowerObject type)
     {
         Button towerButton = Instantiate(shopItemTowerPrefab, shopPanelTransform);
-        towerButton.name = type;
-        switch (type)
+        towerButton.name = type.towerName;
+        towerButton.image.sprite = type.sprite;
+    }
+
+    public void ShopButtonPressed(string name)
+    {
+        foreach (TowerObject tower in availableTowers)
         {
-            case "archer":
-                towerButton.image.sprite = archerTowerImage;
-                break;
-            case "cannon":
-                towerButton.image.sprite = cannonTowerImage;
-                break;
-            case "magic":
-                towerButton.image.sprite = magicTowerImage;
-                break;
-            default:
-                Debug.Log("Unable to find tower shop item");
-                break;
+            if (tower.towerName == name)
+            {
+                towerPlacement.CreateTower(tower);
+            }
         }
+        
+    }
+
+    public int GetTowerPrice(string name)
+    {
+
+        foreach(TowerObject tower in availableTowers)
+        {
+            if(tower.towerName == name)
+            {
+                return tower.level1TowerCost;
+            }
+        }
+        return 0;
     }
 
 }
