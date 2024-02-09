@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,29 +27,30 @@ public class TowerPlacement : MonoBehaviour
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (!Physics.Raycast(ray, out hit)) { return; }
+                if (!RaycastWithoutTriggers(ray, out hit)) { return; }
                 focusObj = Instantiate(selectedTower, hit.point, selectedTower.transform.rotation);
-                focusObj.GetComponent<Collider>().enabled = false;
-
+                //focusObj.GetComponent<Collider>().enabled = false;
+                SetCollidersEnabled(false);
             }
-            else if (Input.GetMouseButton(0))
+            else if (Input.GetMouseButton(0) && focusObj != null)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (!Physics.Raycast(ray, out hit)) { return; }
+                if (!RaycastWithoutTriggers(ray, out hit)) { return; }
                 focusObj.transform.position = hit.point;
 
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (Input.GetMouseButtonUp(0) && focusObj != null)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (!Physics.Raycast(ray, out hit)) { return; }
+                if (!RaycastWithoutTriggers(ray, out hit)) { return; }
                 if (hit.collider.gameObject.name == "Platform" && hit.normal.Equals(new Vector3(0, 1, 0)))
                 {
                     hit.collider.gameObject.name = "Occupied";
                     focusObj.transform.position = new Vector3(hit.collider.gameObject.transform.position.x, focusObj.transform.position.y, hit.collider.gameObject.transform.position.z);
-                    focusObj.GetComponent<Collider>().enabled = true;
+                    //focusObj.GetComponent<Collider>().enabled = true;
+                    SetCollidersEnabled(true);
                     levelManager.currentGold -= towerPrice; 
                 }
                 else
@@ -68,4 +70,28 @@ public class TowerPlacement : MonoBehaviour
         selectedTower = tower.level1Tower;
         creatingTower = true;
     }
+
+
+    private void SetCollidersEnabled(bool enabled)
+    {
+        Collider[] colliders = focusObj.GetComponents<Collider>();
+        foreach (Collider collider in colliders) { collider.enabled = enabled; }
+    }
+
+    private bool RaycastWithoutTriggers(Ray ray, out RaycastHit hit)
+    {
+        RaycastHit[] hits = Physics.RaycastAll(ray);
+        Array.Sort(hits, (x,y) => x.distance.CompareTo(y.distance));
+        foreach(RaycastHit raycastHit in hits)
+        {
+            if (!raycastHit.collider.isTrigger)
+            {
+                hit = raycastHit;
+                return true;
+            }
+        }
+        hit = new RaycastHit();
+        return false;
+    }
+
 }
