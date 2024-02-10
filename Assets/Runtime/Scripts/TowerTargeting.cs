@@ -55,10 +55,11 @@ public class TowerTargeting : MonoBehaviour
 
     private void TargetFirst()
     {
-        Debug.Log(enemiesInRange.Count);
         if(enemiesInRange.Count > 0)
         {
+            
             currentTarget = enemiesInRange[0];
+            Debug.Log(currentTarget);
         }
         else
         {

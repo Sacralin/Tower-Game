@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c6821dbb03510fb4ba02c950dfdf5d40
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - arrowProjectilePrefab: {fileID: 1765602253597348782, guid: 6c2e84b8b3988104fa0209d80116ab3e, type: 3}
+  - cannonProjectilePrefab: {fileID: 5160908065315312055, guid: 5d3d90e3ad7ea40418aabb62737e71fc, type: 3}
+  - magicProjectilePrefab: {fileID: 8003487413409947324, guid: 574b31de3b1f7ca41ad9b81b89bf19aa, type: 3}
+  - firePoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

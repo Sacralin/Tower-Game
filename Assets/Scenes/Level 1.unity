@@ -972,6 +972,7 @@ GameObject:
   - component: {fileID: 390568119}
   - component: {fileID: 390568120}
   - component: {fileID: 390568121}
+  - component: {fileID: 390568122}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1056,6 +1057,18 @@ MonoBehaviour:
   upgradeText: {fileID: 878487815}
   cancelButton: {fileID: 1291015897}
   arrow: {fileID: 2301115800207837223, guid: 84fd75d61de16624fbf1e58cb7f9ab1c, type: 3}
+--- !u!114 &390568122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390568115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda9711e01e1e3f44a58a26c9cf30173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &431181822
 GameObject:
   m_ObjectHideFlags: 0

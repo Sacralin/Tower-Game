@@ -151,4 +151,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  levelManager: {fileID: 0}
+  healthBarPrefab: {fileID: 4866050413937231556, guid: 95218a03994f70f46a0e27d2e093b5e0, type: 3}
+  maxHealth: 100
