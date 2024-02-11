@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5172882104864621831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,13 +91,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7696382892131249327, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5005953214036862006, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4017409859736212542, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3539295934958413442, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3004050759947246620, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2889283423425526848, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1177800356066661583, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
       propertyPath: m_Name
       value: ballista_tower_LVL_3_rig
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
       propertyPath: m_TagString
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370177220545632771, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321941162436259063, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364890373982290085, guid: c25bf9162074b7745807ccd897ed1ea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

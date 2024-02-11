@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4844767202929392065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4810860168982005937}
+  m_Layer: 8
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4810860168982005937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844767202929392065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.69, z: 0.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8035622631227752749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5957529918582365874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.9371624
+      value: -1.1557379
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.965546
+      value: -44.215492
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,17 +91,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8451839963971860093, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5603218160757642424, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5071301683078119986, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4501184853073657064, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       propertyPath: m_Name
       value: poison_tower_LVL_1_rig
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       propertyPath: m_TagString
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 4459470291752702430, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342330795562717194, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4407090891432828831, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4810860168982005937}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
       insertIndex: -1
@@ -213,9 +275,14 @@ MonoBehaviour:
   arrowProjectilePrefab: {fileID: 1765602253597348782, guid: 6c2e84b8b3988104fa0209d80116ab3e, type: 3}
   cannonProjectilePrefab: {fileID: 5160908065315312055, guid: 5d3d90e3ad7ea40418aabb62737e71fc, type: 3}
   magicProjectilePrefab: {fileID: 8003487413409947324, guid: 574b31de3b1f7ca41ad9b81b89bf19aa, type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 4810860168982005937}
 --- !u!1 &7724368361552126844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5071301683078119986, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
+  m_PrefabInstance: {fileID: 5957529918582365874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8035622631227752749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4407090891432828831, guid: c3043d14c88ec2640937d9cb99ffe272, type: 3}
   m_PrefabInstance: {fileID: 5957529918582365874}
   m_PrefabAsset: {fileID: 0}

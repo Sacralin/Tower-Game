@@ -41,6 +41,10 @@ public class EnemyController : MonoBehaviour
             if(currentWaypointIndex == waypoints.Count)
             {
                 levelManager.EnemyDestroyed();
+                if(healthBar != null)
+                {
+                    Destroy(healthBar.gameObject);
+                }
                 Destroy(this.gameObject, 0.1f);
             }
             else

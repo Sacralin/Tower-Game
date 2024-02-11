@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &308481933236722742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463957440682250883}
+  m_Layer: 8
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &463957440682250883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308481933236722742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 3.5, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1831849631459041473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7733526113798580636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.937275
+      value: -7.6775994
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.10956
+      value: -44.477356
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,17 +91,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8494924291911662053, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7342604505092555709, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6848122650590715771, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       propertyPath: m_Name
       value: cannon_tower_LVL_2_rig
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       propertyPath: m_TagString
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 1215772418024952484, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565654892743071022, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221363169187375746, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8232308050088692061, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 463957440682250883}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
       insertIndex: -1
@@ -94,6 +156,11 @@ PrefabInstance:
 --- !u!1 &1822593598605968158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8221363169187375746, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
+  m_PrefabInstance: {fileID: 7733526113798580636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1831849631459041473 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8232308050088692061, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}
   m_PrefabInstance: {fileID: 7733526113798580636}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7463142805907887309 stripped
@@ -213,7 +280,7 @@ MonoBehaviour:
   arrowProjectilePrefab: {fileID: 1765602253597348782, guid: 6c2e84b8b3988104fa0209d80116ab3e, type: 3}
   cannonProjectilePrefab: {fileID: 5160908065315312055, guid: 5d3d90e3ad7ea40418aabb62737e71fc, type: 3}
   magicProjectilePrefab: {fileID: 8003487413409947324, guid: 574b31de3b1f7ca41ad9b81b89bf19aa, type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 463957440682250883}
 --- !u!1 &8902573664213646136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1215772418024952484, guid: 3e318e0b262dc8d4eab69e9d17af196c, type: 3}

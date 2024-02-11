@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4749298034218007754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,6 +39,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8751683171997276310, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.196304
+      value: -8.322388
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3736348
+      value: -45.983345
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -91,13 +95,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8591600659090016061, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6323517250463799867, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5997576207594410641, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2956021341180753486, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1265010066589875126, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_Name
       value: ballista_tower_LVL_2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
       propertyPath: m_TagString
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106515073692884238, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182363576674557739, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724411816146216878, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357525399185679087, guid: f310509eff10c054e802c71f316cbeaf, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -247,7 +291,7 @@ MonoBehaviour:
   arrowProjectilePrefab: {fileID: 1765602253597348782, guid: 6c2e84b8b3988104fa0209d80116ab3e, type: 3}
   cannonProjectilePrefab: {fileID: 5160908065315312055, guid: 5d3d90e3ad7ea40418aabb62737e71fc, type: 3}
   magicProjectilePrefab: {fileID: 8003487413409947324, guid: 574b31de3b1f7ca41ad9b81b89bf19aa, type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 4749298034218007754}
 --- !u!4 &5923477098379228934 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9060404951449309856, guid: f310509eff10c054e802c71f316cbeaf, type: 3}

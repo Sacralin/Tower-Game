@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using Unity.VisualScripting;
 
 public class TowerTargeting : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class TowerTargeting : MonoBehaviour
     public List<GameObject> enemiesInRange = new List<GameObject>();
     public GameObject currentTarget;
     private System.Random rnd = new System.Random();
+    bool targetIsActive = false;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,19 @@ public class TowerTargeting : MonoBehaviour
             weaponYaw.transform.forward = -weaponYaw.transform.forward;
             weaponPitch.transform.LookAt(currentTarget.transform.position);
             weaponYaw.transform.LookAt(currentTarget.transform.position);
+
+            
         }
+
+        if(targetIsActive)
+        {
+            if (currentTarget.gameObject.IsDestroyed())
+            {
+                enemiesInRange.Remove(currentTarget);
+                targetIsActive = false;
+            }
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,10 +60,16 @@ public class TowerTargeting : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            if(other.gameObject == currentTarget.gameObject)
+            {
+                targetIsActive = false;
+            }
             enemiesInRange.Remove(other.gameObject);
             
         }
     }
+
+    
 
     private void TargetFirst()
     {
@@ -59,12 +77,18 @@ public class TowerTargeting : MonoBehaviour
         {
             
             currentTarget = enemiesInRange[0];
-            Debug.Log(currentTarget);
+            targetIsActive = true;
+            
         }
         else
         {
             currentTarget = null;
         }
+    }
+
+    public GameObject GetCurrentTarget()
+    {
+        return currentTarget;
     }
 
     private void TargetClosest()
@@ -84,7 +108,7 @@ public class TowerTargeting : MonoBehaviour
             }
         }
 
-        if(closestEnemy != null) { currentTarget = closestEnemy; }
+        if(closestEnemy != null) { currentTarget = closestEnemy; targetIsActive = true; }
         else { currentTarget = null; }
 
     }
@@ -95,9 +119,12 @@ public class TowerTargeting : MonoBehaviour
         {
             int target = rnd.Next(0 , enemiesInRange.Count);
             currentTarget = enemiesInRange[target];
+            targetIsActive = true;
         }
         else { currentTarget = null; }
 
         
     }
+
+    
 }

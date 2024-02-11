@@ -6,8 +6,8 @@ public class TowerShooting : MonoBehaviour
 {
     private TowerTargeting targeting;
     private GameObject currentTarget;
-    private string type;
-    private int level = 1;
+    //private string type;
+    //private int level = 1;
     private float attackSpeed = 2f;
     public GameObject arrowProjectilePrefab;
     public GameObject cannonProjectilePrefab;
@@ -24,21 +24,21 @@ public class TowerShooting : MonoBehaviour
         targeting = GetComponent<TowerTargeting>();
         if (this.gameObject.name.Contains("ballista")) 
         { 
-            type = "ballista"; 
+            //type = "ballista"; 
             selectedProjectile = arrowProjectilePrefab;
-            attackSpeed = 2f;
-            projectileSpeed = 2f;
+            attackSpeed = 1f;
+            projectileSpeed = 20f;
         }
         else if (this.gameObject.name.Contains("cannon")) 
         { 
-            type = "cannon"; 
+            //type = "cannon"; 
             selectedProjectile = cannonProjectilePrefab;
-            attackSpeed = 2f;
-            projectileSpeed = 2f;
+            attackSpeed = 3f;
+            projectileSpeed = 50f;
         }
         else if (this.gameObject.name.Contains("poison")) 
         { 
-            type = "magic"; 
+            //type = "magic"; 
             selectedProjectile = magicProjectilePrefab;
             attackSpeed = 2f;
             projectileSpeed = 2f;
@@ -50,27 +50,35 @@ public class TowerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(attackSpeed);
-        //Debug.Log(attackIntervalCounter);
-        targeting.currentTarget = currentTarget;
-        Debug.Log(currentTarget);
-        Debug.Log(targeting.currentTarget);
-        attackIntervalCounter += 1 * Time.deltaTime;
-        if(attackIntervalCounter >= attackSpeed)
+        currentTarget = targeting.GetCurrentTarget();
+        attackIntervalCounter += Time.deltaTime;
+
+        if (currentTarget != null && attackIntervalCounter >= attackSpeed)
         {
-            attackIntervalCounter = attackSpeed;
-        }
-        
-        if(currentTarget != null && attackIntervalCounter == attackSpeed )
-        {
-            Debug.Log("test");
             FireProjectile();
+            attackIntervalCounter = 0f; // Reset the counter after firing
         }
     }
+
+
 
     private void FireProjectile()
     {
         GameObject newProjectile = Instantiate(selectedProjectile, firePoint.position, Quaternion.identity);
-        newProjectile.GetComponent<Rigidbody>().velocity = firePoint.forward * projectileSpeed;
+        
+        // Calculate the direction from the firePoint to the target
+        Vector3 direction = (currentTarget.transform.position - firePoint.position).normalized;
+
+        // Calculate the rotation needed to face the target
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        // Rotate the projectile to face the target
+        newProjectile.transform.rotation = rotation;
+
+        // Apply the calculated direction to the projectile's Rigidbody
+        Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
+        rb.velocity = direction * projectileSpeed;
     }
+
+
 }
