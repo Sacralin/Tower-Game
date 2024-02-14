@@ -41,7 +41,7 @@ public class TowerShooting : MonoBehaviour
             //type = "magic"; 
             selectedProjectile = magicProjectilePrefab;
             attackSpeed = 2f;
-            projectileSpeed = 2f;
+            projectileSpeed = 20f;
         }
         else { Debug.Log("Tower type unknown"); }
         
