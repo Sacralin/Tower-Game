@@ -75,6 +75,11 @@ public class TowerShooting : MonoBehaviour
         // Rotate the projectile to face the target
         newProjectile.transform.rotation = rotation;
 
+        // Adjust projectile to point toward the target
+        newProjectile.transform.localEulerAngles = new Vector3(newProjectile.transform.localEulerAngles.x + 90f,
+                                                               newProjectile.transform.localEulerAngles.y, 
+                                                               newProjectile.transform.localEulerAngles.z);
+
         // Apply the calculated direction to the projectile's Rigidbody
         Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
         rb.velocity = direction * projectileSpeed;
