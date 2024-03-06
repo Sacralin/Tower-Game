@@ -5,6 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject enemyPrefab1;
+    public GameObject enemyPrefab2;
     public List<Transform> waypoints;
     public float spawnRate = 0.5f;
     public int maxCount = 10;

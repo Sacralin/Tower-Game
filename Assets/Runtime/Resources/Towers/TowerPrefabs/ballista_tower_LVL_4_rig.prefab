@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49df88084b4f4c141af270549811e4f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.887157
+      value: -38.352283
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49df88084b4f4c141af270549811e4f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49df88084b4f4c141af270549811e4f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.661705
+      value: -18.129835
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49df88084b4f4c141af270549811e4f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -286,7 +286,7 @@ MonoBehaviour:
   arrowProjectilePrefab: {fileID: 1765602253597348782, guid: 6c2e84b8b3988104fa0209d80116ab3e, type: 3}
   cannonProjectilePrefab: {fileID: 5160908065315312055, guid: 5d3d90e3ad7ea40418aabb62737e71fc, type: 3}
   magicProjectilePrefab: {fileID: 8003487413409947324, guid: 574b31de3b1f7ca41ad9b81b89bf19aa, type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 5735418231861399723}
 --- !u!1 &6389628505055870717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8035208845465998043, guid: 49df88084b4f4c141af270549811e4f2, type: 3}
