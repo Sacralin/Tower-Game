@@ -7,21 +7,24 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
+    LevelManager levelManager;
+    Spawner spawner;
     public List<Transform> waypoints;
     private int currentWaypointIndex = 0;
     private float agentStoppingDistance = 0.3f;
     private bool waypointSet = false;
     private NavMeshAgent agent;
-    private LevelManager levelManager;
     public Slider healthBarPrefab;
     private Slider healthBar;
     public int maxHealth = 100;
+    public Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        spawner = FindAnyObjectByType<Spawner>();
         levelManager = FindAnyObjectByType<LevelManager>();
+        agent = GetComponent<NavMeshAgent>();
         healthBar = Instantiate(healthBarPrefab, this.transform.position, Quaternion.identity);
         healthBar.transform.SetParent(GameObject.Find("Canvas").transform);
         healthBar.maxValue = maxHealth;
@@ -40,12 +43,16 @@ public class EnemyController : MonoBehaviour
         {
             if(currentWaypointIndex == waypoints.Count)
             {
-                levelManager.EnemyDestroyed();
+                //levelManager.EnemyDestroyed();
                 if(healthBar != null)
                 {
                     Destroy(healthBar.gameObject);
+                    levelManager.DecrementLives();
+                    spawner.spawnedEnemies.Remove(enemy);
                 }
                 Destroy(this.gameObject, 0.1f);
+                //NPC reached the end, add lose condition
+                
             }
             else
             {
@@ -71,6 +78,10 @@ public class EnemyController : MonoBehaviour
             {
                 Destroy(healthBar.gameObject);
                 Destroy(this.gameObject);
+                //NPC dies add gold to player 
+                levelManager.currentGold += enemy.goldReward;
+                spawner.spawnedEnemies.Remove(enemy);
+
             }
         }
     }

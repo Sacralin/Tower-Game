@@ -2,21 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveComposition : MonoBehaviour
+public class WaveComposition
 {
-    int timeTillNextSpawn = 0;
-    List<Enemy> wave = new List<Enemy>();
+    public  List<Enemy> wave = new List<Enemy>();
 
 
-    // Start is called before the first frame update
-    void Start()
+
+
+    public void Level1WaveComposition()
     {
-        //wave.Add(new Enemy );
+        wave.Add(new Enemy("footman",5));
+
+        wave.Add(new Enemy("footman", 5));
+        wave.Add(new Enemy("footman")); 
+
+        wave.Add(new Enemy("footman", 5));
+        wave.Add(new Enemy("footman"));
+        wave.Add(new Enemy("footman")); 
+
+        wave.Add(new Enemy("footman", 5));
+        wave.Add(new Enemy("footman"));
+        wave.Add(new Enemy("footman"));
+        wave.Add(new Enemy("footman"));
+
+        wave.Add(new Enemy("hero",5));
+        wave.Add(new Enemy("hero"));
+        wave.Add(new Enemy("footman"));
+        wave.Add(new Enemy("footman"));
+
+        wave.Add(new Enemy("hero", 5));
+        wave.Add(new Enemy("hero"));
+        wave.Add(new Enemy("hero"));
+        wave.Add(new Enemy("footman"));
+
+        wave.Add(new Enemy("hero", 5));
+        wave.Add(new Enemy("hero"));
+        wave.Add(new Enemy("hero"));
+        wave.Add(new Enemy("hero"));
+
+        wave.Add(new Enemy("dragon", 10));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }

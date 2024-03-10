@@ -1,36 +1,73 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public GameObject enemyPrefab1;
-    public GameObject enemyPrefab2;
+    private WaveComposition wave;
+    private Enemy enemy;
+    private float timeToFirstWaveSpawn = 5f;
+    public List<Enemy> spawnedEnemies = new List<Enemy>();
+    private float timer;
+    private float timeTillNextEnemySpawn;
+    private bool beginSpawning;
     public List<Transform> waypoints;
-    public float spawnRate = 0.5f;
-    public int maxCount = 10;
-    private int count = 0;
+    public List<Transform> flightWaypoints;
+    private bool nextSpawnTimerSet;
 
-    void Spawn()
+    private void Awake()
     {
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        enemy.GetComponent<EnemyController>().SetDestination(waypoints);
-        count++;
-        if(count >= maxCount)
+        wave = new WaveComposition();
+        wave.Level1WaveComposition();
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > timeToFirstWaveSpawn)
         {
-            CancelInvoke();
+            beginSpawning = true;
+        }
+
+        ManageSpawnDelay();
+
+        if (beginSpawning && timer >= timeTillNextEnemySpawn)
+        {
+            Spawn();
         }
     }
 
-    public void StartNextWave()
+    private void ManageSpawnDelay()
     {
-        count = 0;
-        InvokeRepeating("Spawn", 1, spawnRate);
+        if (wave.wave.Count != 0 && nextSpawnTimerSet == false)
+        {
+            enemy = wave.wave[0];
+            timeTillNextEnemySpawn = enemy.timeTillNextSpawn;
+            nextSpawnTimerSet = true;
+        }
     }
 
-    public void StopSpawning()
+    private void Spawn()
     {
-        CancelInvoke();
+        if(wave.wave.Count != 0)
+        {
+            GameObject enemyPrefab = Instantiate(enemy.selectedPrefab, transform.position, Quaternion.identity);
+            EnemyController controller = enemyPrefab.GetComponent<EnemyController>();
+            if(enemy.type == "dragon")
+            {
+                controller.SetDestination(flightWaypoints);
+            }
+            else
+            {
+                controller.SetDestination(waypoints);
+            }
+            controller.maxHealth = enemy.health;
+            controller.enemy = enemy;
+            spawnedEnemies.Add(enemy);
+            wave.wave.Remove(enemy);
+            nextSpawnTimerSet = false;
+            timer = 0;
+        }
     }
 }
