@@ -68,7 +68,11 @@ public class TowerPlacement : MonoBehaviour
     {
         towerPrice = tower.level1TowerCost;
         selectedTower = tower.level1Tower;
-        creatingTower = true;
+        if(towerPrice <= levelManager.currentGold)
+        {
+            creatingTower = true;
+        }
+        
     }
 
 

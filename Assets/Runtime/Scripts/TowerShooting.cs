@@ -16,6 +16,7 @@ public class TowerShooting : MonoBehaviour
     private float projectileSpeed;
     private float attackIntervalCounter;
     public Transform firePoint;
+    private int damage;
 
 
     // Start is called before the first frame update
@@ -28,13 +29,47 @@ public class TowerShooting : MonoBehaviour
             selectedProjectile = arrowProjectilePrefab;
             attackSpeed = 1f;
             projectileSpeed = 20f;
+
+            if (this.gameObject.name.Contains("1")) //level 1
+            {
+                damage = 5;
+            }
+            else if (this.gameObject.name.Contains("2")) //level 2
+            {
+                damage = 10;
+            }
+            else if (this.gameObject.name.Contains("3")) //level 3
+            {
+                damage = 15;
+            }
+            else if (this.gameObject.name.Contains("4")) //level 4
+            {
+                damage = 20;
+            }
         }
         else if (this.gameObject.name.Contains("cannon")) 
         { 
             //type = "cannon"; 
             selectedProjectile = cannonProjectilePrefab;
             attackSpeed = 3f;
-            projectileSpeed = 50f;
+            projectileSpeed = 20f;
+
+            if (this.gameObject.name.Contains("1"))
+            {
+                damage = 15;
+            }
+            else if (this.gameObject.name.Contains("2"))
+            {
+                damage = 30;
+            }
+            else if (this.gameObject.name.Contains("3"))
+            {
+                damage = 45;
+            }
+            else if (this.gameObject.name.Contains("4"))
+            {
+                damage = 60;
+            }
         }
         else if (this.gameObject.name.Contains("poison")) 
         { 
@@ -42,9 +77,29 @@ public class TowerShooting : MonoBehaviour
             selectedProjectile = magicProjectilePrefab;
             attackSpeed = 2f;
             projectileSpeed = 20f;
+
+            if (this.gameObject.name.Contains("1"))
+            {
+                damage = 10;
+            }
+            else if (this.gameObject.name.Contains("2"))
+            {
+                damage = 20;
+            }
+            else if (this.gameObject.name.Contains("3"))
+            {
+                damage = 30;
+            }
+            else if (this.gameObject.name.Contains("4"))
+            {
+                damage = 40;
+            }
+
         }
         else { Debug.Log("Tower type unknown"); }
+
         
+
     }
 
     // Update is called once per frame
@@ -65,7 +120,11 @@ public class TowerShooting : MonoBehaviour
     private void FireProjectile()
     {
         GameObject newProjectile = Instantiate(selectedProjectile, firePoint.position, Quaternion.identity);
-        
+
+        Projectile script = newProjectile.GetComponent<Projectile>();
+
+        script.damage = damage;
+
         // Calculate the direction from the firePoint to the target
         Vector3 direction = (currentTarget.transform.position - firePoint.position).normalized;
 

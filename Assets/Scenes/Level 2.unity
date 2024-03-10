@@ -1405,7 +1405,7 @@ MonoBehaviour:
   goldText: {fileID: 1053010779}
   livesText: {fileID: 743649022}
   currentGold: 150
-  lives: 20
+  lives: 5
 --- !u!4 &390568117
 Transform:
   m_ObjectHideFlags: 0
