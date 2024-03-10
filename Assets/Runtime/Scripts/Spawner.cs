@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     private WaveComposition wave;
     private Enemy enemy;
     private float timeToFirstWaveSpawn = 5f;
-    public List<Enemy> spawnedEnemies = new List<Enemy>();
+    public List<GameObject> spawnedEnemies = new List<GameObject>();
     private float timer;
     private float timeTillNextEnemySpawn;
     private bool beginSpawning;
@@ -70,7 +70,7 @@ public class Spawner : MonoBehaviour
             }
             controller.maxHealth = enemy.health;
             controller.enemy = enemy;
-            spawnedEnemies.Add(enemy);
+            spawnedEnemies.Add(enemyPrefab);
             wave.wave.Remove(enemy);
             nextSpawnTimerSet = false;
             timer = 0;

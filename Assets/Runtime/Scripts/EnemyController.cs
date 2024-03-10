@@ -41,28 +41,32 @@ public class EnemyController : MonoBehaviour
         {
             healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + Vector3.up * 1.2f);
         }
-        if(!agent.pathPending && agent.remainingDistance <= agentStoppingDistance)
+        if(agent.isActiveAndEnabled)
         {
-            if(currentWaypointIndex == waypoints.Count)
+            if (!agent.pathPending && agent.remainingDistance <= agentStoppingDistance)
             {
-                //levelManager.EnemyDestroyed();
-                if(healthBar != null)
+                if (currentWaypointIndex == waypoints.Count)
                 {
-                    Destroy(healthBar.gameObject);
-                    levelManager.DecrementLives();
-                    spawner.spawnedEnemies.Remove(enemy);
-                    gameOver.EndConditionCheck(enemy);
+                    //levelManager.EnemyDestroyed();
+                    if (healthBar != null)
+                    {
+                        Destroy(healthBar.gameObject);
+                        levelManager.DecrementLives();
+                        spawner.spawnedEnemies.Remove(this.gameObject);
+                        gameOver.EndConditionCheck(enemy);
+                    }
+                    Destroy(this.gameObject, 0.1f);
+                    //NPC reached the end, add lose condition
+
                 }
-                Destroy(this.gameObject, 0.1f);
-                //NPC reached the end, add lose condition
-                
-            }
-            else
-            {
-                agent.SetDestination(waypoints[currentWaypointIndex].position);
-                currentWaypointIndex++;
+                else
+                {
+                    agent.SetDestination(waypoints[currentWaypointIndex].position);
+                    currentWaypointIndex++;
+                }
             }
         }
+        
 
     }
 
@@ -83,7 +87,7 @@ public class EnemyController : MonoBehaviour
                 Destroy(this.gameObject);
                 //NPC dies add gold to player 
                 levelManager.currentGold += enemy.goldReward;
-                spawner.spawnedEnemies.Remove(enemy);
+                spawner.spawnedEnemies.Remove(this.gameObject);
                 gameOver.EndConditionCheck(enemy);
 
             }
