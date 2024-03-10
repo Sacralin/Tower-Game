@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
-    LevelManager levelManager;
-    Spawner spawner;
+    private LevelManager levelManager;
+    private Spawner spawner;
     public List<Transform> waypoints;
     private int currentWaypointIndex = 0;
     private float agentStoppingDistance = 0.3f;
@@ -18,10 +18,12 @@ public class EnemyController : MonoBehaviour
     private Slider healthBar;
     public int maxHealth = 100;
     public Enemy enemy;
+    private GameOver gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameOver = FindAnyObjectByType<GameOver>();
         spawner = FindAnyObjectByType<Spawner>();
         levelManager = FindAnyObjectByType<LevelManager>();
         agent = GetComponent<NavMeshAgent>();
@@ -49,6 +51,7 @@ public class EnemyController : MonoBehaviour
                     Destroy(healthBar.gameObject);
                     levelManager.DecrementLives();
                     spawner.spawnedEnemies.Remove(enemy);
+                    gameOver.EndConditionCheck(enemy);
                 }
                 Destroy(this.gameObject, 0.1f);
                 //NPC reached the end, add lose condition
@@ -81,6 +84,7 @@ public class EnemyController : MonoBehaviour
                 //NPC dies add gold to player 
                 levelManager.currentGold += enemy.goldReward;
                 spawner.spawnedEnemies.Remove(enemy);
+                gameOver.EndConditionCheck(enemy);
 
             }
         }

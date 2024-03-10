@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
@@ -15,11 +17,15 @@ public class Spawner : MonoBehaviour
     public List<Transform> waypoints;
     public List<Transform> flightWaypoints;
     private bool nextSpawnTimerSet;
+    public int totalNumberOfEnemies;
+    //public List<Enemy> allEnemies = new List<Enemy>();
 
     private void Awake()
     {
         wave = new WaveComposition();
         wave.Level1WaveComposition();
+        totalNumberOfEnemies = wave.wave.Count();
+        //allEnemies = wave.wave;
     }
 
     private void Update()
