@@ -1523,6 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caaff7ffd71174944ba6c0e556e6a903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeButton: {fileID: 372273323}
 --- !u!1001 &409068733
 PrefabInstance:
   m_ObjectHideFlags: 0
