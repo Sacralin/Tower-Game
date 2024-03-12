@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
-    private WaveComposition wave;
+    public WaveComposition wave;
     private Enemy enemy;
     private float timeToFirstWaveSpawn = 5f;
     public List<GameObject> spawnedEnemies = new List<GameObject>();

@@ -49,6 +49,13 @@ public class GameOver : MonoBehaviour
         infoText.text = "You Lose!";
         infoText.gameObject.SetActive(true);
         continueButton.gameObject.SetActive(true);
+        spawner.wave.wave.Clear();
+        foreach (GameObject gameObject in spawner.spawnedEnemies)
+        {
+            Destroy(gameObject);
+        }
+        
+        
     }
 
     public void Win()

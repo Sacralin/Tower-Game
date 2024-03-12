@@ -15,6 +15,10 @@ public class Projectile : MonoBehaviour
             if(enemy != null)
             {
                 enemy.Hit(damage);
+                if(this.gameObject.name.Contains("Poison_shell"))
+                {
+                    enemy.HitByMagicTower();
+                }
             }
             
         }

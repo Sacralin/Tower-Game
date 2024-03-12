@@ -34,19 +34,22 @@ public class TowerShooting : MonoBehaviour
 
             if (this.gameObject.name.Contains("1")) //level 1
             {
-                damage = 5;
+                damage = 3;
             }
             else if (this.gameObject.name.Contains("2")) //level 2
             {
-                damage = 10;
+                damage = 3;
+                attackSpeed = attackSpeed / 2 ;
             }
             else if (this.gameObject.name.Contains("3")) //level 3
             {
-                damage = 15;
+                damage = 3;
+                attackSpeed = (attackSpeed / 2) /2 ;
             }
             else if (this.gameObject.name.Contains("4")) //level 4
             {
-                damage = 20;
+                damage = 6;
+                attackSpeed = (attackSpeed / 2) / 2;
             }
         }
         else if (this.gameObject.name.Contains("cannon")) 
@@ -58,19 +61,19 @@ public class TowerShooting : MonoBehaviour
 
             if (this.gameObject.name.Contains("1"))
             {
-                damage = 15;
+                damage = 4;
             }
             else if (this.gameObject.name.Contains("2"))
             {
-                damage = 30;
+                damage = 8;
             }
             else if (this.gameObject.name.Contains("3"))
             {
-                damage = 45;
+                damage = 12;
             }
             else if (this.gameObject.name.Contains("4"))
             {
-                damage = 60;
+                damage = 16;
             }
         }
         else if (this.gameObject.name.Contains("poison")) 
@@ -82,19 +85,19 @@ public class TowerShooting : MonoBehaviour
 
             if (this.gameObject.name.Contains("1"))
             {
-                damage = 10;
+                damage = 2;
             }
             else if (this.gameObject.name.Contains("2"))
             {
-                damage = 20;
+                damage = 4;
             }
             else if (this.gameObject.name.Contains("3"))
             {
-                damage = 30;
+                damage = 6;
             }
             else if (this.gameObject.name.Contains("4"))
             {
-                damage = 40;
+                damage = 8;
             }
 
         }

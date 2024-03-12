@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     public int maxHealth = 100;
     public Enemy enemy;
     private GameOver gameOver;
+    private float timer;
+    private bool slowed = false;
+    private float slowDuration = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,16 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(slowed)
+        {
+            timer += Time.deltaTime;
+            if (timer >= slowDuration)
+            {
+                agent.speed = 2f;
+            }
+        }
+        
+
         if (!waypointSet) { return; }
         if (healthBar)
         {
@@ -92,5 +105,12 @@ public class EnemyController : MonoBehaviour
 
             }
         }
+    }
+
+    public void HitByMagicTower()
+    {
+        agent.speed = 1;
+        timer = 0;
+        slowed = true;
     }
 }
