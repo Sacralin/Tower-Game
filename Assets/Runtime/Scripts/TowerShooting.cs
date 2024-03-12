@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TowerShooting : MonoBehaviour
 {
+    private SoundPlayer soundPlayer;
     private TowerTargeting targeting;
     private GameObject currentTarget;
-    //private string type;
+    private string type;
     //private int level = 1;
     private float attackSpeed = 2f;
     public GameObject arrowProjectilePrefab;
@@ -22,10 +23,11 @@ public class TowerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundPlayer = FindAnyObjectByType<SoundPlayer>();
         targeting = GetComponent<TowerTargeting>();
         if (this.gameObject.name.Contains("ballista")) 
         { 
-            //type = "ballista"; 
+            type = "ballista"; 
             selectedProjectile = arrowProjectilePrefab;
             attackSpeed = 1f;
             projectileSpeed = 20f;
@@ -49,7 +51,7 @@ public class TowerShooting : MonoBehaviour
         }
         else if (this.gameObject.name.Contains("cannon")) 
         { 
-            //type = "cannon"; 
+            type = "cannon"; 
             selectedProjectile = cannonProjectilePrefab;
             attackSpeed = 3f;
             projectileSpeed = 20f;
@@ -73,7 +75,7 @@ public class TowerShooting : MonoBehaviour
         }
         else if (this.gameObject.name.Contains("poison")) 
         { 
-            //type = "magic"; 
+            type = "magic"; 
             selectedProjectile = magicProjectilePrefab;
             attackSpeed = 2f;
             projectileSpeed = 20f;
@@ -142,6 +144,26 @@ public class TowerShooting : MonoBehaviour
         // Apply the calculated direction to the projectile's Rigidbody
         Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
         rb.velocity = direction * projectileSpeed;
+
+        PlaySound();
+    }
+
+    private void PlaySound()
+    {
+        switch (type)
+        {
+            case "ballista":
+                soundPlayer.PlayArrowSound();
+                break;
+            case "cannon":
+                soundPlayer.PlayCannonSound();
+                break;
+            case "magic":
+                soundPlayer.PlayMagicSound();
+                break;
+                default: break;
+
+        }
     }
 
 

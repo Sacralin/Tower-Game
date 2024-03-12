@@ -5,10 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    SoundPlayer soundPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        soundPlayer = FindAnyObjectByType<SoundPlayer>();
+        if (SceneManager.GetActiveScene().name.ToString() == "Menu")
+        {
+            soundPlayer.PlayStartMusic();
+        }
+        if (SceneManager.GetActiveScene().name.ToString() != "Menu")
+        {
+            soundPlayer.PlayLevelMusic();
+        }
+
     }
 
     // Update is called once per frame
