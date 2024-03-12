@@ -38,18 +38,18 @@ public class TowerShooting : MonoBehaviour
             }
             else if (this.gameObject.name.Contains("2")) //level 2
             {
-                damage = 3;
-                attackSpeed = attackSpeed / 2 ;
+                damage = 4;
+                attackSpeed = 0.8f;
             }
             else if (this.gameObject.name.Contains("3")) //level 3
             {
-                damage = 3;
-                attackSpeed = (attackSpeed / 2) /2 ;
+                damage = 5;
+                attackSpeed = 0.6f ;
             }
             else if (this.gameObject.name.Contains("4")) //level 4
             {
                 damage = 6;
-                attackSpeed = (attackSpeed / 2) / 2;
+                attackSpeed = 0.4f;
             }
         }
         else if (this.gameObject.name.Contains("cannon")) 
@@ -61,19 +61,19 @@ public class TowerShooting : MonoBehaviour
 
             if (this.gameObject.name.Contains("1"))
             {
-                damage = 4;
+                damage = 10;
             }
             else if (this.gameObject.name.Contains("2"))
             {
-                damage = 8;
+                damage = 20;
             }
             else if (this.gameObject.name.Contains("3"))
             {
-                damage = 12;
+                damage = 30;
             }
             else if (this.gameObject.name.Contains("4"))
             {
-                damage = 16;
+                damage = 40;
             }
         }
         else if (this.gameObject.name.Contains("poison")) 

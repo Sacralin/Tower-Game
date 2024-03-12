@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     private Spawner spawner;
     public List<Transform> waypoints;
     private int currentWaypointIndex = 0;
-    private float agentStoppingDistance = 0.3f;
+    private float agentStoppingDistance = 1f;
     private bool waypointSet = false;
     private NavMeshAgent agent;
     public Slider healthBarPrefab;
